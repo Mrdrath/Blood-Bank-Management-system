@@ -25,7 +25,7 @@ app.use(morgan('dev'));
 
 mongoose.connect(
   dburi,
-  { useUnifiedTopology: true,useNewUrlParser: true, useCreateIndex: true },
+  { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true },
   (err) => {
     if (err) throw err;
     else console.log('Connected to mongoDb');

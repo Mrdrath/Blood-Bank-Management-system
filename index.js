@@ -10,7 +10,7 @@ var mongoose = require('mongoose');
 var userModel = require('./models/user');
 
 const KEY = process.env.KEY;
-const dburi = process.env.DBURI ||'development';
+const dburi = process.env.DBURI;
 const signature = {
   signed: KEY,
   maxAge: 2 * 24 * 60 * 60 * 1000,
@@ -25,7 +25,7 @@ app.use(morgan('dev'));
 
 mongoose.connect(
   dburi,
-  { useNewUrlParser: true, useCreateIndex: true },
+  { useUnifiedTopology: true,useNewUrlParser: true, useCreateIndex: true },
   (err) => {
     if (err) throw err;
     else console.log('Connected to mongoDb');

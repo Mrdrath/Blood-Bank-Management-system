@@ -25,7 +25,7 @@ app.use(morgan('dev'));
 
 mongoose.connect(
   dburi,
-  {  useCreateIndex: true },
+  { useNewUrlParser: true, useCreateIndex: true },
   (err) => {
     if (err) throw err;
     else console.log('Connected to mongoDb');
@@ -193,7 +193,7 @@ app.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 27017;
 app.listen(port, () => {
   console.log('App listening on port ' + port + '!');
 });
